@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Circle -->
+    <circle cx="256" cy="256" r="248" fill="#FF6B6B" stroke="#FF8787" stroke-width="16"/>
+    
+    <!-- Caduceus Staff -->
+    <rect x="241" y="96" width="30" height="320" rx="15" fill="white"/>
+    
+    <!-- Wings -->
+    <path d="M196 156C196 156 156 176 156 216C156 256 196 276 196 276" stroke="white" stroke-width="20" stroke-linecap="round"/>
+    <path d="M316 156C316 156 356 176 356 216C356 256 316 276 316 276" stroke="white" stroke-width="20" stroke-linecap="round"/>
+    
+    <!-- Snakes -->
+    <path d="M216 146C216 146 176 186 176 226C176 266 216 306 216 306" stroke="white" stroke-width="24" stroke-linecap="round"/>
+    <circle cx="216" cy="146" r="12" fill="#FFD700"/>
+    <path d="M296 146C296 146 336 186 336 226C336 266 296 306 296 306" stroke="white" stroke-width="24" stroke-linecap="round"/>
+    <circle cx="296" cy="146" r="12" fill="#FFD700"/>
+    
+    <!-- Digital Circuit Lines -->
+    <path d="M156 356H356" stroke="#FFD700" stroke-width="4" stroke-dasharray="8 8"/>
+    <path d="M156 376H356" stroke="#FFD700" stroke-width="4" stroke-dasharray="8 8"/>
+    <path d="M156 396H356" stroke="#FFD700" stroke-width="4" stroke-dasharray="8 8"/>
+    
+    <!-- AI Nodes -->
+    <circle cx="156" cy="356" r="6" fill="#FFD700"/>
+    <circle cx="256" cy="356" r="6" fill="#FFD700"/>
+    <circle cx="356" cy="356" r="6" fill="#FFD700"/>
+    <circle cx="156" cy="376" r="6" fill="#FFD700"/>
+    <circle cx="256" cy="376" r="6" fill="#FFD700"/>
+    <circle cx="356" cy="376" r="6" fill="#FFD700"/>
+    <circle cx="156" cy="396" r="6" fill="#FFD700"/>
+    <circle cx="256" cy="396" r="6" fill="#FFD700"/>
+    <circle cx="356" cy="396" r="6" fill="#FFD700"/>
+    
+    <!-- Cross Symbol -->
+    <rect x="241" y="116" width="30" height="80" rx="15" fill="#FFD700"/>
+    <rect x="216" y="141" width="80" height="30" rx="15" fill="#FFD700"/>
+</svg>

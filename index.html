@@ -3,211 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CureInfo - Your Health Companion</title>
+    <title>CureInfo - Your Medical Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/assistant.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .logo {
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">CureInfo</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#common-illnesses">Common Illnesses</a></li>
-                <li><a href="#medicines">Medicines</a></li>
-                <li><a href="#store-locator">Store Locator</a></li>
-                <li><a href="#emergency">Emergency</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home" class="hero">
-            <h1>Your Health Guide</h1>
-            <p>Learn about common illnesses and their recommended treatments</p>
-            <div class="disclaimer">
-                Note: Always consult a healthcare professional before taking any medication
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="images/logo.svg" alt="CureInfo Logo" class="logo" width="30" height="30">
+                <i class="fas fa-heartbeat"></i> CureInfo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#search">
+                            <i class="fas fa-search"></i> Find Medicines
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#stores">
+                            <i class="fas fa-store"></i> Find Stores
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">
+                            <i class="fas fa-info-circle"></i> About
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/login.html">
+                            <i class="fas fa-user"></i> Store Login
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <section id="search" class="search-section">
-            <div class="search-container">
-                <h2>Find Medicine Information</h2>
-                <div class="search-box">
-                    <input type="text" id="medicine-search" placeholder="Enter medicine name...">
-                    <button id="search-btn">Search</button>
-                </div>
-                <div id="search-results" class="search-results">
-                    <!-- Search results will appear here -->
-                </div>
-            </div>
-        </section>
-
-        <section id="common-illnesses" class="illness-section">
-            <h2>Common Illnesses</h2>
-            <div class="illness-grid">
-                <div class="illness-card">
-                    <h3>Fever</h3>
-                    <div class="symptoms">
-                        <h4>Symptoms:</h4>
-                        <ul>
-                            <li>High temperature</li>
-                            <li>Chills and sweating</li>
-                            <li>Headache</li>
-                            <li>Muscle aches</li>
-                        </ul>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4">Find Medicines Near You</h1>
+                    <p class="lead">Search medicines, check availability, and locate nearby medical stores in real-time.</p>
+                    <div class="search-box">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="medicine-search" 
+                                   placeholder="Search medicines by name...">
+                            <button class="btn btn-primary" onclick="searchMedicines()">
+                                <i class="fas fa-search"></i> Search
+                            </button>
+                        </div>
                     </div>
-                    <div class="treatment">
-                        <h4>Common Treatments:</h4>
-                        <ul>
-                            <li>Paracetamol</li>
-                            <li>Ibuprofen</li>
-                            <li>Rest and hydration</li>
-                        </ul>
+                    <div class="features mt-4">
+                        <div class="feature">
+                            <i class="fas fa-pills"></i>
+                            <span>Wide Range of Medicines</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-clock"></i>
+                            <span>24/7 Stores</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Real-time Location</span>
+                        </div>
                     </div>
                 </div>
-
-                <div class="illness-card">
-                    <h3>Common Cold</h3>
-                    <div class="symptoms">
-                        <h4>Symptoms:</h4>
-                        <ul>
-                            <li>Runny nose</li>
-                            <li>Sore throat</li>
-                            <li>Cough</li>
-                            <li>Congestion</li>
-                        </ul>
-                    </div>
-                    <div class="treatment">
-                        <h4>Common Treatments:</h4>
-                        <ul>
-                            <li>Antihistamines</li>
-                            <li>Decongestants</li>
-                            <li>Cough suppressants</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="illness-card">
-                    <h3>Headache</h3>
-                    <div class="symptoms">
-                        <h4>Symptoms:</h4>
-                        <ul>
-                            <li>Pain in head/neck</li>
-                            <li>Sensitivity to light</li>
-                            <li>Nausea</li>
-                        </ul>
-                    </div>
-                    <div class="treatment">
-                        <h4>Common Treatments:</h4>
-                        <ul>
-                            <li>Aspirin</li>
-                            <li>Paracetamol</li>
-                            <li>Rest in dark room</li>
-                        </ul>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <img src="images/hero.svg" alt="Medical Care" class="img-fluid">
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="medicines" class="medicine-section">
-            <h2>Common Medicines Guide</h2>
-            <div class="medicine-grid">
-                <div class="medicine-card">
-                    <h3>Paracetamol</h3>
-                    <p class="uses">Uses: Pain relief, fever reduction</p>
-                    <p class="dosage">Adult dosage: 500-1000mg every 4-6 hours</p>
-                    <p class="warning">Max 4000mg per day</p>
+    <!-- Search Results Section -->
+    <section id="search" class="search-section">
+        <div class="container">
+            <h2 class="section-title">Search Results</h2>
+            <div class="row" id="search-results">
+                <!-- Search results will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Locator Section -->
+    <section id="stores" class="stores-section">
+        <div class="container">
+            <h2 class="section-title">Nearby Medical Stores</h2>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div id="map" class="map-container"></div>
                 </div>
-                <div class="medicine-card">
-                    <h3>Ibuprofen</h3>
-                    <p class="uses">Uses: Pain relief, inflammation</p>
-                    <p class="dosage">Adult dosage: 200-400mg every 4-6 hours</p>
-                    <p class="warning">Take with food</p>
-                </div>
-                <div class="medicine-card">
-                    <h3>Antihistamines</h3>
-                    <p class="uses">Uses: Allergies, cold symptoms</p>
-                    <p class="dosage">Follow package instructions</p>
-                    <p class="warning">May cause drowsiness</p>
+                <div class="col-lg-4">
+                    <div class="store-list" id="store-list">
+                        <!-- Store list will be displayed here -->
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="store-locator" class="store-section">
-            <h2>Medical Store Locator (मेडिकल स्टोर लोकेटर)</h2>
-            <div class="store-container">
-                <div class="store-search">
-                    <div class="location-input">
-                        <input type="text" id="location-input" placeholder="Enter your location or allow GPS access">
-                        <button id="use-location-btn">Use My Location</button>
-                        <button id="search-stores-btn">Search Stores</button>
-                    </div>
-                    <div class="store-filters">
-                        <label>
-                            <input type="checkbox" id="open-now"> Open Now (अभी खुला है)
-                        </label>
-                        <label>
-                            <input type="checkbox" id="24-hours"> 24x7 Stores (24 घंटे खुला)
-                        </label>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="section-title">About CureInfo</h2>
+                    <p class="about-text">
+                        CureInfo is your trusted medical guide, helping you find the right medicines
+                        and medical stores in your area. We connect patients with local pharmacies
+                        to ensure you get the medicines you need, when you need them.
+                    </p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h3>1000+</h3>
+                            <p>Registered Stores</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>10,000+</h3>
+                            <p>Medicines</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>24/7</h3>
+                            <p>Support</p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="store-results-container">
-                    <div id="map" class="store-map"></div>
-                    <div id="store-list" class="store-list">
-                        <!-- Store results will be listed here -->
+                <div class="col-lg-6">
+                    <div class="about-image">
+                        <img src="images/about.svg" alt="About CureInfo" class="img-fluid">
                     </div>
-                </div>
-
-                <div class="medicine-availability">
-                    <h3>Check Medicine Availability (दवा की उपलब्धता जांचें)</h3>
-                    <div class="availability-search">
-                        <input type="text" id="medicine-name" placeholder="Enter medicine name">
-                        <select id="selected-store">
-                            <option value="">Select a store first</option>
-                        </select>
-                        <button id="check-availability-btn">Check Availability</button>
-                    </div>
-                    <div id="availability-result"></div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="emergency" class="emergency-section">
-            <h2>Emergency Information</h2>
-            <div class="emergency-container">
-                <div class="emergency-card">
-                    <h3>When to Seek Emergency Care</h3>
-                    <ul>
-                        <li>सांस लेने में तकलीफ (Difficulty breathing)</li>
-                        <li>छाती में दर्द (Chest pain)</li>
-                        <li>पेट में तेज दर्द (Severe abdominal pain)</li>
-                        <li>तेज बुखार (High fever)</li>
-                        <li>सिर में चोट (Head injury)</li>
+    <!-- Medicine Details Modal -->
+    <div class="modal fade" id="medicineModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Medicine details will be loaded here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h5><i class="fas fa-heartbeat"></i> CureInfo</h5>
+                    <p>Your trusted medical guide for finding medicines and medical stores.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#search">Find Medicines</a></li>
+                        <li><a href="#stores">Find Stores</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="/admin/login.html">Store Login</a></li>
                     </ul>
                 </div>
-                <div class="emergency-card">
-                    <h3>Emergency Contacts (आपातकालीन संपर्क)</h3>
-                    <p>Emergency Helpline: 112</p>
-                    <p>Ambulance: 102</p>
-                    <p>COVID-19 Helpline: 1075</p>
-                    <p>Women Helpline: 1091</p>
-                    <p>Police: 100</p>
-                    <p>Fire: 101</p>
+                <div class="col-lg-4">
+                    <h5>Contact Us</h5>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> support@cureinfo.com</li>
+                        <li><i class="fas fa-phone"></i> +91 7355891981</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Delhi, India</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="disclaimer">
-            <p>Disclaimer: This website is for informational purposes only. Always consult a healthcare professional for medical advice.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CureInfo. All rights reserved.</p>
+            </div>
         </div>
-        <p>&copy; 2025 CureInfo. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/assistant.js"></script>
 </body>
 </html>

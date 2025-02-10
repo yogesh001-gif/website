@@ -1,0 +1,54 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect x="0" y="0" width="800" height="600" fill="#f8f9fa"/>
+    
+    <!-- Medical Building -->
+    <g transform="translate(300, 200)">
+        <!-- Building Base -->
+        <rect x="-100" y="-150" width="200" height="300" fill="#3498db"/>
+        <!-- Windows -->
+        <rect x="-80" y="-130" width="40" height="40" fill="white"/>
+        <rect x="40" y="-130" width="40" height="40" fill="white"/>
+        <rect x="-80" y="-70" width="40" height="40" fill="white"/>
+        <rect x="40" y="-70" width="40" height="40" fill="white"/>
+        <rect x="-80" y="-10" width="40" height="40" fill="white"/>
+        <rect x="40" y="-10" width="40" height="40" fill="white"/>
+        <!-- Door -->
+        <rect x="-20" y="50" width="40" height="100" fill="#2c3e50"/>
+    </g>
+    
+    <!-- Medical Staff -->
+    <g transform="translate(500, 300)">
+        <!-- Doctor -->
+        <circle cx="0" cy="-50" r="30" fill="#2ecc71"/>
+        <rect x="-20" y="-10" width="40" height="60" fill="#2ecc71"/>
+        <!-- Stethoscope -->
+        <path d="M-10,-40 Q-30,-20 -30,0" stroke="#333" fill="none" stroke-width="3"/>
+    </g>
+    
+    <!-- Medicine Bottles -->
+    <g transform="translate(150, 350)">
+        <rect x="-20" y="-40" width="40" height="80" fill="#e74c3c"/>
+        <rect x="-15" y="-45" width="30" height="10" fill="#c0392b"/>
+    </g>
+    
+    <g transform="translate(650, 400)">
+        <rect x="-15" y="-30" width="30" height="60" fill="#f1c40f"/>
+        <rect x="-10" y="-35" width="20" height="8" fill="#f39c12"/>
+    </g>
+    
+    <!-- Decorative Elements -->
+    <circle cx="100" cy="100" r="40" fill="#ecf0f1"/>
+    <circle cx="700" cy="150" r="30" fill="#ecf0f1"/>
+    
+    <!-- Plus Symbols -->
+    <g transform="translate(200, 150)">
+        <rect x="-10" y="-30" width="20" height="60" fill="#3498db"/>
+        <rect x="-30" y="-10" width="60" height="20" fill="#3498db"/>
+    </g>
+    
+    <g transform="translate(600, 250)">
+        <rect x="-8" y="-25" width="16" height="50" fill="#e74c3c"/>
+        <rect x="-25" y="-8" width="50" height="16" fill="#e74c3c"/>
+    </g>
+</svg>
